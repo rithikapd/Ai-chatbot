@@ -1,0 +1,39 @@
+import random
+
+class DodoChatbot:
+    def __init__(self):
+        self.responses = {
+            "hello": ["Hello!", "Hi there!", "Hey!"],
+            "how are you": ["I'm good, thanks for asking!", "Feeling great, how about you?"],
+            "what's your name": ["My name is Dodo.", "I'm Dodo, nice to meet you!"],
+            "who created you": ["I was created by a team of developers.", "My creators prefer to remain anonymous."],
+            "what can you do": ["I can answer your questions and have a conversation with you.", "I'm here to help and chat with you!"],
+            "tell me a joke": ["Why don't scientists trust atoms? Because they make up everything!", "What do you call fake spaghetti? An impasta!"],
+            "goodbye": ["Goodbye!", "See you later!", "Bye!"],
+            "thanks": ["You're welcome!", "No problem!", "Anytime!"],
+            "how old are you": ["I'm just a computer program, so I don't have an age.", "I exist outside the concept of time!"],
+            "where are you from": ["I exist in the digital realm, so I don't have a physical location.", "I'm everywhere and nowhere at the same time!"],
+            "what's the weather like": ["I'm sorry, I can't provide real-time weather updates.", "You can check the weather forecast online or on your phone."],
+            "do you like pizza": ["I don't have personal preferences, but many people enjoy pizza!", "Pizza is a popular choice for many people."],
+            "what's your favorite color": ["I don't have personal preferences like humans do.", "I'm impartial when it comes to colors."],
+            "tell me a fact": ["Did you know that the shortest war in history was between Britain and Zanzibar in 1896? It lasted only 38 minutes!", "The average person spends six months of their life waiting for red lights to turn green!"],
+            "what's the meaning of life": ["That's a deep question! The meaning of life can vary from person to person.", "The meaning of life is a philosophical question that people have been pondering for centuries."],
+        }
+
+    def respond(self, message):
+        message = message.lower()
+        for key in self.responses:
+            if key in message:
+                return random.choice(self.responses[key])
+        return "I'm sorry, I don't understand that question."
+
+if __name__ == "__main__":
+    dodo = DodoChatbot()
+    print("Welcome to Dodo Chatbot! Ask me anything or say goodbye to exit.")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "goodbye":
+            print(dodo.respond(user_input))
+            break
+        else:
+            print("Dodo:", dodo.respond(user_input))
